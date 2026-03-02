@@ -1,1 +1,0 @@
-C:\\Users\\SOMODAL\\Desktop\\list.txt"
