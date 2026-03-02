@@ -62,7 +62,7 @@ while(1){
 
 void list(){ 
 
-FILE *pFile = fopen("C:\\Users\\SOMODAL\\Desktop\\list.txt", "r");
+FILE *pFile = fopen("list.txt", "r");
 
 char buffer[1024] = {0};
 
@@ -98,7 +98,7 @@ struct item newItem;
     printf("enter item days to expire: ");
     scanf("%d", &newItem.daysToExpire);
 
-    FILE *pFile = fopen("C:\\Users\\SOMODAL\\Desktop\\list.txt", "a");
+    FILE *pFile = fopen("list.txt", "a");
     if(pFile == NULL){
         printf("cannot open file\n");
     }
@@ -116,8 +116,8 @@ struct item newItem;
 
 void delete(){
 
-FILE *pFile = fopen("C:\\Users\\SOMODAL\\Desktop\\list.txt", "r");
-FILE *pTemp = fopen("C:\\Users\\SOMODAL\\Desktop\\temp.txt", "w");
+FILE *pFile = fopen("list.txt", "r");
+FILE *pTemp = fopen("temp.txt", "w");
 
 struct item item;
 int found = 0;
@@ -149,9 +149,9 @@ while(fscanf(pFile, "%s %d %f %d %d",
 fclose(pFile);
 fclose(pTemp);
 
-remove("C:\\Users\\SOMODAL\\Desktop\\list.txt");
-rename("C:\\Users\\SOMODAL\\Desktop\\temp.txt",
-       "C:\\Users\\SOMODAL\\Desktop\\list.txt");
+remove("list.txt");
+rename("temp.txt",
+       "list.txt");
 
 if(found == 1){
     printf("\nitem was deleted successfully!\n");
@@ -163,8 +163,8 @@ else{
 
 void modification(){
 
-FILE *pFile = fopen("C:\\Users\\SOMODAL\\Desktop\\list.txt", "r");
-FILE *pTemp = fopen("C:\\Users\\SOMODAL\\Desktop\\temp.txt", "w");
+FILE *pFile = fopen("list.txt", "r");
+FILE *pTemp = fopen("temp.txt", "w");
 
 int found = 0;
 int choice = 0;
@@ -338,9 +338,9 @@ float newprice = 0.00;
         fclose(pFile);
         fclose(pTemp);
 
-        remove("C:\\Users\\SOMODAL\\Desktop\\list.txt");
-        rename("C:\\Users\\SOMODAL\\Desktop\\temp.txt",
-               "C:\\Users\\SOMODAL\\Desktop\\list.txt");
+        remove("list.txt");
+        rename("temp.txt",
+               "list.txt");
                 
         if(found == 0){
              printf("item not found");
@@ -352,7 +352,7 @@ float newprice = 0.00;
 
 void searching(){
 
-FILE *pFile = fopen("C:\\Users\\SOMODAL\\Desktop\\list.txt", "r");
+FILE *pFile = fopen("list.txt", "r");
 
 struct item item;
 int barcode = 0;
@@ -400,7 +400,7 @@ while(fscanf(pFile, "%s %d %f %d %d",
 
 void lowinStock(){
 
-FILE *pFile = fopen("C:\\Users\\SOMODAL\\Desktop\\list.txt", "r");
+FILE *pFile = fopen("list.txt", "r");
 
 struct item item;
 int found = 0;
@@ -440,8 +440,8 @@ while(fscanf(pFile, "%s %d %f %d %d",
 
 void updateexp(){
 
-FILE *pUpdate = fopen("C:\\Users\\SOMODAL\\Desktop\\list.txt", "r");
-FILE *pTemp = fopen("C:\\Users\\SOMODAL\\Desktop\\temp.txt", "w");
+FILE *pUpdate = fopen("list.txt", "r");
+FILE *pTemp = fopen("temp.txt", "w");
 
 struct item item;
 
@@ -465,9 +465,9 @@ while(fscanf(pUpdate, "%s %d %f %d %d",
 fclose(pUpdate);
 fclose(pTemp);
 
-remove ("C:\\Users\\SOMODAL\\Desktop\\list.txt");
-rename ("C:\\Users\\SOMODAL\\Desktop\\temp.txt",
-        "C:\\Users\\SOMODAL\\Desktop\\list.txt");
+remove ("list.txt");
+rename ("temp.txt",
+        "list.txt");
     
     printf("\nexpiration days updated successfully!\n");
 };
